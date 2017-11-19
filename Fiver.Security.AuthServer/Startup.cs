@@ -18,10 +18,8 @@ namespace Fiver.Security.AuthServer
                         .AddInMemoryClients(Config.GetClients())
                         .AddTestUsers(Config.GetUsers())
                         .AddProfileService<IdentityWithAdditionalClaimsProfileService>();
-             
-            //cdnCX336|=aketAAXAQ73!+
 
-            services.AddAuthentication()
+        services.AddAuthentication()
         .AddMicrosoftAccount("MicrosoftAccount", options =>
         {
             options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
@@ -35,7 +33,7 @@ namespace Fiver.Security.AuthServer
         }
 
         public void Configure(
-            IApplicationBuilder app, 
+            IApplicationBuilder app,
             IHostingEnvironment envloggerFactory)
         {
             app.UseDeveloperExceptionPage();

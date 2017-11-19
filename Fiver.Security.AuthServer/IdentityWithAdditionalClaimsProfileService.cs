@@ -14,25 +14,21 @@ namespace Fiver.Security.AuthServer
 {
     public class IdentityWithAdditionalClaimsProfileService : IProfileService
     {
-        //private readonly IUserClaimsPrincipalFactory<ApplicationUser> _claimsFactory;
-        //private readonly UserManager<ApplicationUser> _userManager;
-
-      
+        
 
         public async Task GetProfileDataAsync(ProfileDataRequestContext context)
         {
             var sub = context.Subject.GetSubjectId();
 
-            var claims = context.Subject.Claims;            
+            var claims = context.Subject.Claims;   // there is no claim contains the emailaddress         
 
-            claims = claims.Where(claim => context.RequestedClaimTypes.Contains(claim.Type)).ToList();
+           
             context.IssuedClaims = claims.ToList();
         }
 
         public async Task IsActiveAsync(IsActiveContext context)
         {
-          //  var sub = context.Subject.GetSubjectId();
-           // var user = await _userManager.FindByIdAsync(sub);
+         
             context.IsActive = true;
         }
     }

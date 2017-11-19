@@ -25,7 +25,7 @@ namespace Fiver.Security.AuthServer.Client.Controllers
         public async Task<IActionResult> Movies()
         {
             var accessToken = await HttpContext.GetTokenAsync("access_token");
-            await testAsync();
+          //  await getUserInfo();
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
@@ -41,7 +41,7 @@ namespace Fiver.Security.AuthServer.Client.Controllers
             return View();
         }
 
-        async Task testAsync()
+        async Task getUserInfo()
         {
             var accessToken = await HttpContext.GetTokenAsync("access_token");
             var discoveryClient = new DiscoveryClient("http://localhost:5000/");
