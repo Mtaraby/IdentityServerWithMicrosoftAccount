@@ -20,7 +20,7 @@ namespace Fiver.Security.AuthServer
         {
             var sub = context.Subject.GetSubjectId();
 
-            var claims = context.Subject.Claims;   // there is no claim contains the emailaddress         
+            var claims = context.Subject.Claims;   //here is the problem , there is no claim contains the emailaddress         
 
            
             context.IssuedClaims = claims.ToList();
